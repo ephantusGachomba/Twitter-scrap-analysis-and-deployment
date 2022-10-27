@@ -57,12 +57,13 @@ st.image("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxQREBUSExM
 
 #Getting the keyword to analyse
 keywords = st.text_input("Enter the keyword")
-st.write(keywords)
+keywords = st.write(keywords)
+keywords = keywords
 limit = 1000 #Number of tweets to obtain
 
 
 #limit at a time , we get 200.To solve this issue run code below.
-tweets = tweepy.Cursor(api.search_tweets, q=keywords, count=200, tweet_mode = 'extended', wait_on_rate_limit=True).items(limit)
+tweets = tweepy.Cursor(api.search_tweets, q=keywords, count=100, tweet_mode = 'extended', wait_on_rate_limit=True).items(limit)
 
 #Create DataFrame
 columns = ['created_at', 'text', 'User']#, 'reply_count',	'retweet_count']#, 'user/location', 'user/followers_count']
