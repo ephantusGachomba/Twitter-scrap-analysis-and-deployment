@@ -98,7 +98,7 @@ plt.ylabel('The Count of tweets collected')
 plt.title('A Trend on the counts of tweets and the dates created' , fontsize=15, color= 'brown', fontweight='bold')
 ax.xaxis.grid(True)
 ax.yaxis.grid(True)
-st.pyplot()
+st.pyplot(ax)
 
 # time series plot for the most active hours for tweeting
 reactions = df.groupby(['hour']).count().sort_values(by='created_at',ascending=0)
@@ -108,7 +108,7 @@ plt.ylabel('The Count of tweets collected')
 plt.title('A Trend on the counts of tweets and the hours created',  fontsize=15, color= 'green', fontweight='bold')
 ax.xaxis.grid(True)
 ax.yaxis.grid(True)
-st.pyplot()
+st.pyplot(ax)
 
 ##EXPLORATORY DATA ANALYSIS
 #Creating a copy for the text column This will enable us work with the text column solely
