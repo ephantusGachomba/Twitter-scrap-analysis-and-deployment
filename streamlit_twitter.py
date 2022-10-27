@@ -72,9 +72,6 @@ for tweet in tweets:
   data.append([ tweet.created_at, tweet.full_text, tweet.user.screen_name])#, tweet.reply_count, tweet.retweet_count])# tweet.user.location, tweet.user.followers_count])
 
 df = pd.DataFrame(data, columns=columns)
-#df.rename(columns={"full_text": "text"}, inplace=True)
-
-#df.head(5)
 
 #Removing the duplicates
 df = df.drop_duplicates()
@@ -89,7 +86,7 @@ df['hour'] = df['created_at'].dt.hour
 df['date'] = df['created_at'].dt.date
 #Creating a column for month
 df['month'] = df['created_at'].dt.month
-df.head()
+
 
 # time series showing when the tweets for this analysis was created
 reactions = df.groupby(['date']).count()
@@ -98,7 +95,7 @@ plt.ylabel('The Count of tweets collected')
 plt.title('A Trend on the counts of tweets and the dates created' , fontsize=15, color= 'brown', fontweight='bold')
 ax.xaxis.grid(True)
 ax.yaxis.grid(True)
-st.pyplot(ax)
+st.pyplot()
 
 # time series plot for the most active hours for tweeting
 reactions = df.groupby(['hour']).count().sort_values(by='created_at',ascending=0)
@@ -108,7 +105,7 @@ plt.ylabel('The Count of tweets collected')
 plt.title('A Trend on the counts of tweets and the hours created',  fontsize=15, color= 'green', fontweight='bold')
 ax.xaxis.grid(True)
 ax.yaxis.grid(True)
-st.pyplot(ax)
+st.pyplot()
 
 ##EXPLORATORY DATA ANALYSIS
 #Creating a copy for the text column This will enable us work with the text column solely
