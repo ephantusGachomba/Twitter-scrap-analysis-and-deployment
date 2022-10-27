@@ -31,6 +31,7 @@ import networkx as nx
 
 import warnings
 warnings.filterwarnings("ignore")
+st.set_option('deprecation.showPyplotGlobalUse', False)
 
 sns.set(font_scale=1.5)
 sns.set_style("whitegrid")
